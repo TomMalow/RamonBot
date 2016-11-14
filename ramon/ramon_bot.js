@@ -58,6 +58,8 @@ var responses = require('./responses');
 var token = require('./token');
 var Botkit = require('../lib/Botkit.js');
 
+var tickNumber = 0;
+
 var controller = Botkit.slackbot({
  debug: false
 });
@@ -73,4 +75,11 @@ controller.spawn({
 controller.hears(['Ramón', 'Ramon', 'rsm', 'soto'],['direct_message','direct_mention','mention','ambient'],function(bot,message) {
     var reply = _.sample(responses);
     bot.reply(message, reply);;
+});
+
+controller.on('tick', function(bot, event) {
+  tickNumber++;
+  if(tickNumber > 50){
+    console.log("tick");
+  }
 });
