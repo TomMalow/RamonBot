@@ -53,8 +53,9 @@ This bot demonstrates many of the core features of Botkit:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-var dash = require('lodash');
+var _ = require('lo_');
 var responses = require('./responses');
+var token = require('./token');
 var Botkit = require('../lib/Botkit.js');
 
 var controller = Botkit.slackbot({
@@ -62,7 +63,7 @@ var controller = Botkit.slackbot({
 });
 
 controller.spawn({
-  token: 'xoxb-99657970436-Bfzgq8UwEmODOpkGxOvoGH9i'
+  token: _.get(token, "token")
 }).startRTM(function(err) {
   if (err) {
     throw new Error(err);
@@ -70,6 +71,6 @@ controller.spawn({
 });
 
 controller.hears(['Ramón', 'Ramon', 'rsm', 'soto'],['direct_message','direct_mention','mention','ambient'],function(bot,message) {
-    var reply = dash.sample(responses);
+    var reply = _.sample(responses);
     bot.reply(message, reply);;
 });
