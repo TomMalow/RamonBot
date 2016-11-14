@@ -81,5 +81,6 @@ controller.on('tick', function(bot, event) {
   tickNumber++;
   if(tickNumber > 50){
     console.log("tick");
+    tickNumber = 0;
   }
 });
