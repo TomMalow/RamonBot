@@ -53,7 +53,7 @@ This bot demonstrates many of the core features of Botkit:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-var _ = require('lo_');
+var _ = require('lodash');
 var responses = require('./responses');
 var token = require('./token');
 var Botkit = require('../lib/Botkit.js');
